@@ -1,0 +1,104 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    width: 98vw;
+    height: 98vh;
+    background-color: #e5e8f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#PopUpWrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#PopUp{
+    width: 25%;
+    height: 25%;
+    background-color: #ffffff;
+    box-shadow: 0 0 6px 0px #848484;
+    border-radius: 10px;
+}
+#Heading{
+    width: 100%;
+    height: 2rem;
+    color: black;
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 3rem 0rem 2rem 0rem;
+    /* font-family: Arial, Helvetica, sans-serif */
+}
+#inputWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#inputBox{
+    border: 1px solid #1d1d1d;
+    outline: none;
+    background-color: #fff;
+    color: black;
+    height: 2.5rem;
+    border-radius: 5px;
+    padding-left: 15px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+#inputBox:focus{
+    border: 1.5px solid #ef348a;
+}
+#btnWrapper{
+    height: 2.5rem;
+    width: 6rem;
+    background-color: #ef348a;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
+}
+#Error{
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    color: red;
+    margin-top: 20px;
+}
+
+#WorkSpace{
+    width: 90vw;
+    height: 90vh;
+    color: black;
+}
+#WorkspaceHeading{
+    margin: 2rem 0rem 1.5rem 0rem;
+    font-size: 20px;
+}
+#WorkspaceInput{
+    width: 100%;
+    height: 100%;
+}
+#WorkspaceInput textarea{
+    width: 100%;
+    height: 85%;
+    resize: none;
+    padding: 12px;
+    background-color: #fff;
+    outline: none;
+    border: 2px solid #000;
+    color: black;
+    font-size: 16.5px;
+    display: inline-block;
+}
+#WorkspaceInput textarea:focus{
+    border: 2px solid #ef348a;
+}
