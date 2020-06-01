@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Workspace</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="JoinPopUp">
+            <div id="Join">
+               <p>Student Joined Server</p>
+            </div>
+        </div>
+        <div id="LeftPopUp">
+            <div id="Left">
+               <p>Student has Left Server</p>
+            </div>
+        </div>
+        <div class="table">
+            <div class="table-header">
+                <div class="header__item">
+                    <p id="name" class="filter__link">RollNo.</p>
+                </div>
+                <div class="header__item">
+                    <p id="wins" class="filter__link filter__link--number">Total Words</p>
+                </div>
+                <div class="header__item">
+                    <p id="draws" class="filter__link filter__link--number">Total Characters</p>
+                </div>
+                <div class="header__item">
+                    <p id="losses" class="filter__link filter__link--number">Words/Minute</p>
+                </div>
+                <div class="header__item">
+                    <p id="total" class="filter__link filter__link--number">Status</p>
+                </div>
+            </div>
+            <div class="table-content">
+            </div>
+        </div>
+    </div>
+    <script src="./socket.io.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
