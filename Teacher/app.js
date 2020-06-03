@@ -7,17 +7,20 @@ const JoinPop = document.getElementById('JoinPopUp')
 const LeftPopUp = document.getElementById('LeftPopUp')
 JoinPop.style.display = 'none'
 LeftPopUp.style.display = 'none'
+
 const DomUpdate = () => {
     const list = document.querySelector('.table-content')
+
+    // removing previous entries from table so that new ones can be added
     while (list.hasChildNodes()) {
         list.removeChild(list.firstChild);
     }
-    // sorting in descending order
+    // sorting WPM in descending order
     StudentsArr.sort(function (a, b) {
         return b.Wpm - a.Wpm;
     });
-    
 
+    // adding entries for each children in table tag
     StudentsArr.forEach(student => {
         const Div = document.createElement('div')
         Div.className = 'table-row'
@@ -26,10 +29,13 @@ const DomUpdate = () => {
     })
 }
 
+/* Notifying teacher that a user has joined the server */
 Socket.on('Userconnected',(data)=>{
     console.log("userconnected")
     const JoinPopUpWindow = (time = 0) => {
         let Time = time
+
+        // logic to display popUp for 4seconds
         setTimeout(() => {
             if (Time === 20) {
                 JoinPop.style.display = 'none'
@@ -42,10 +48,15 @@ Socket.on('Userconnected',(data)=>{
     JoinPopUpWindow()
 })
 
+// receiving data from server through socketIO
 Socket.on("ServerToTeacher", Data => {
+
+    // if receiving the first entry
     if (StudentsArr.length === 0) {
         StudentsArr.push(Data)
     }
+
+    // checking if a entry already exist, if exist, update with recent changes else create new one
     while (i < StudentsArr.length) {
         if (StudentsArr[i].rollno === Data.rollno) {
             StudentsArr[i].status = Data.status
@@ -65,12 +76,17 @@ Socket.on("ServerToTeacher", Data => {
         // add to array
         StudentsArr.push(Data)
     }
+    
+    // update Dom with recent changes
     DomUpdate()
 })
+
+/* Notifying teacher that a user has left the server */
 
 Socket.on('DisconnectedFromServer',(data)=>{
     const LeftPopUpWindow = (time = 0) => {
         let Time = time
+         // logic to display popUp for 4seconds
         setTimeout(() => {
             if (Time === 20) {
                 LeftPopUp.style.display = 'none'
