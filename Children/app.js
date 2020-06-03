@@ -1,9 +1,9 @@
-const WorkSpace = document.getElementById('WorkSpace')
-const Socket = io('http://localhost:4001')
-const workspaceinputtag = document.getElementById('INPUT')
+const WorkSpace = document.getElementById('WorkSpace')      /* getting instance of workspace */
+const Socket = io('http://localhost:4001')          /* getting instance of socketIO */
+const workspaceinputtag = document.getElementById('INPUT')         /* getting instance of input */
 const Error = document.getElementById('Error')
-workspaceinputtag.value = ''
-const Popup = document.getElementById('PopUpWrapper')
+workspaceinputtag.value = ''        /* clearing workspace on initial start */
+const Popup = document.getElementById('PopUpWrapper')         /* getting instance of Popup */
 let totalwords = 0
 let RollNo
 let wordsArr = []
@@ -22,6 +22,7 @@ let Data = {
     Wpm: 0
 }
 
+/* logic to display if user is typing or has paused */
 
 const typingStatus = (count) => {
     setTimeout(() => {
@@ -38,6 +39,8 @@ const typingStatus = (count) => {
     }, 700);
 }
 
+/* Transfer data to server using socketIO */
+
 const TransferDataToServer = (Data) => {
     Socket.emit('ChildToServer', Data)
 }
@@ -47,12 +50,16 @@ function Main() {
 
     const RollNoInput = document.getElementById('inputBox')
 
+    // receiving input from user as rollno
     RollNoInput.addEventListener('input', () => {
         RollNo = RollNoInput.value
     })
+
     const Submit = document.getElementById('btnWrapper')
     Submit.addEventListener('click', () => {
         let flag = false
+
+        // checking if entered input contains any character
         for (let i = 0; i < RollNo.length; i++) {
             if (RollNo[i].charCodeAt(0) < 58 && RollNo[i].charCodeAt(0) > 47) {
                 continue
@@ -61,6 +68,8 @@ function Main() {
                 break
             }
         }
+
+        // throwing a warning if entered input contains a character
         if (flag) {
             const ErrorWindow = (time = 0) => {
                 let Time = time
@@ -80,16 +89,22 @@ function Main() {
             Data.rollno = RollNo
         }
     })
-
+    // listening to character typed in workspace by children
     workspaceinputtag.addEventListener('input', () => {
+
+        // getting the first time when the user starts typing
         if (timeflag) {
             Data.Wpm = (new Date() / 1000).toFixed(0)
             timeflag = false
         }
         currpara = workspaceinputtag.value
+
+        // checking if user is deleting character from the word
         if (currpara.length > prevpara.length) {
             ind = ind + 1
         }
+
+        // initializing the typing function 
         if(initialFlag){
             typingStatus(currpara.length)
             initialFlag = false
@@ -98,10 +113,16 @@ function Main() {
         flag = true
         prevpara = workspaceinputtag.value
         Data.Characters = currpara
+
+        // sending data to server through socketIO
         TransferDataToServer(Data)
     })
+    
+    /* Logic to determine whether the user is deleting a mistake or has completed typing a word */
 
     workspaceinputtag.addEventListener('keydown', (e) => {
+
+        // keycode = 32 stands for spacebar and keycode = 13 stands for enter key
         if (e.keyCode === 32 || e.keyCode === 13) {
             let word = currpara.slice(paraLength - ind, paraLength)
             wordsArr.push(word)
@@ -109,7 +130,10 @@ function Main() {
             flag = false
             Data.Words = wordsArr.length
             TransferDataToServer(Data)
-        } else if (e.keyCode === 8) {
+        } 
+
+        // keycode = 8 stands for backspace
+        else if (e.keyCode === 8) {
             if (flag && ind > 0) {
                 ind = ind - 1
             }
