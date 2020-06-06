@@ -20,7 +20,7 @@ const DomUpdate = () => {
         return b.Wpm - a.Wpm;
     });
 
-    // adding entries for each children in table tag
+    // adding entries for each children in table Tag
     StudentsArr.forEach(student => {
         const Div = document.createElement('div')
         Div.className = 'table-row'
