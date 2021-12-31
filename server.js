@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 // our localhost port
-const port = 4001;
+const port = process.env.PORT || 4001;
 
 const app = express();
 
@@ -24,7 +24,7 @@ app.start = app.listen = function () {
   return server.listen.apply(server, arguments);
 };
 const publicPath = path.join(__dirname, "../public");
-console.log(publicPath);
+
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
