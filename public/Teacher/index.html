@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Workspace</title>
+    <link rel="stylesheet" href="../Teacher/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Popup -->
+      <div id="PopUpWrapper">
+        <div id="PopUp">
+          <div class="heading">Congratulations!!!</div>
+          <div class="text-one">
+            You have successfully created a private room. Share Secret Code and
+            Url with the Students, so that they can connect with you.
+          </div>
+          <div class="link-row">
+            <div class="secret-code">
+              <div class="label">Secret Code</div>
+              <div class="copy-text" id="secret-code-copy">
+                <input
+                  type="text"
+                  class="text"
+                  value="https://fileshare.io/001-510-115"
+                  readonly
+                />
+                <button>
+                  <div class="copy-icon"></div>
+                </button>
+              </div>
+            </div>
+            <div class="website-url">
+              <div class="label">Joining Link</div>
+              <div class="copy-text" id="joining-link-copy">
+                <input
+                  type="text"
+                  class="text"
+                  value="https://fileshare.io/001-510-115"
+                  readonly
+                />
+                <button>
+                  <div class="copy-icon"></div>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="btn-wrapper">
+            <div class="continue-btn"><div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="JoinPopUp">
+        <div id="Join">
+          <p>Student Joined Server</p>
+        </div>
+      </div>
+      <div id="LeftPopUp">
+        <div id="Left">
+          <p>Student has Left Server</p>
+        </div>
+      </div>
+      <div class="table">
+        <div class="table-header">
+          <div class="header__item">
+            <p id="name" class="filter__link">RollNo.</p>
+          </div>
+          <div class="header__item">
+            <p id="wins" class="filter__link filter__link--number">
+              Total Words
+            </p>
+          </div>
+          <div class="header__item">
+            <p id="draws" class="filter__link filter__link--number">
+              Total Characters
+            </p>
+          </div>
+          <div class="header__item">
+            <p id="losses" class="filter__link filter__link--number">
+              Words/Minute
+            </p>
+          </div>
+          <div class="header__item">
+            <p id="total" class="filter__link filter__link--number">Status</p>
+          </div>
+        </div>
+        <div class="table-content"></div>
+      </div>
+    </div>
+    <script src="../Teacher/socket.io.js"></script>
+    <script src="../Teacher/app.js"></script>
+  </body>
+</html>
