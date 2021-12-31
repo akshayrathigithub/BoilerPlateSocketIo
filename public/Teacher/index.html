@@ -63,31 +63,68 @@
           <p>Student has Left Server</p>
         </div>
       </div>
-      <div class="table">
-        <div class="table-header">
-          <div class="header__item">
-            <p id="name" class="filter__link">RollNo.</p>
+      <div class="wrapper">
+        <div class="top-header">
+          <div class="active-students">
+            Total Active Students: <span id="totalActiveStudents">0</span>
           </div>
-          <div class="header__item">
-            <p id="wins" class="filter__link filter__link--number">
-              Total Words
-            </p>
-          </div>
-          <div class="header__item">
-            <p id="draws" class="filter__link filter__link--number">
-              Total Characters
-            </p>
-          </div>
-          <div class="header__item">
-            <p id="losses" class="filter__link filter__link--number">
-              Words/Minute
-            </p>
-          </div>
-          <div class="header__item">
-            <p id="total" class="filter__link filter__link--number">Status</p>
+          <div class="part-two">
+            <div class="website-url dashboard-input">
+              <div class="label">Joining Link</div>
+              <div class="copy-text" id="joining-link-copy-dashboard">
+                <input
+                  type="text"
+                  class="text"
+                  value="https://fileshare.io/001-510-115"
+                  readonly
+                />
+                <button>
+                  <div class="copy-icon"></div>
+                </button>
+              </div>
+            </div>
+            <div class="secret-code dashboard-input">
+              <div class="label">Secret Code</div>
+              <div class="copy-text" id="secret-code-copy-dashboard">
+                <input
+                  type="text"
+                  class="text"
+                  value="https://fileshare.io/001-510-115"
+                  readonly
+                />
+                <button>
+                  <div class="copy-icon"></div>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="table-content"></div>
+        <div class="table">
+          <div class="table-header">
+            <div class="header__item">
+              <p id="name" class="filter__link">Name.</p>
+            </div>
+            <div class="header__item">
+              <p id="wins" class="filter__link filter__link--number">
+                Total Words
+              </p>
+            </div>
+            <div class="header__item">
+              <p id="draws" class="filter__link filter__link--number">
+                Total Characters
+              </p>
+            </div>
+            <div class="header__item">
+              <p id="losses" class="filter__link filter__link--number">
+                Words/Minute
+              </p>
+            </div>
+            <div class="header__item">
+              <p id="total" class="filter__link filter__link--number">Status</p>
+            </div>
+          </div>
+          <div class="table-content"></div>
+        </div>
       </div>
     </div>
     <script src="../Teacher/socket.io.js"></script>

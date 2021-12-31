@@ -19,6 +19,7 @@ body {
   z-index: 10;
 }
 #JoinPopUp {
+  position: absolute;
   width: 15%;
   height: 3rem;
   border-radius: 8px;
@@ -31,6 +32,7 @@ body {
   margin: 1rem 0rem;
 }
 #LeftPopUp {
+  position: absolute;
   width: 15%;
   height: 3rem;
   border-radius: 8px;
@@ -42,8 +44,33 @@ body {
   font-size: 15.5px;
   margin: 0.5rem 0rem;
 }
+
+.wrapper {
+  width: 100%;
+  padding: 25px 45px 0px 45px;
+}
+
+.top-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.active-students {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.dashboard-input {
+  display: flex;
+  width: 30rem !important;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .table {
-  width: 75%;
+  width: 100%;
   border: 1px solid #eeeeee;
   margin-top: 1.5rem;
 }
@@ -305,6 +332,19 @@ body {
     font-size: 18px;
     padding-right: calc(100% - 15rem);
   }
+
+  .top-header {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .active-students {
+    margin-bottom: 10px;
+  }
+
+  .table {
+    min-width: 815px;
+  }
 }
 @media screen and (min-width: 320px) and (max-width: 479px) {
   #PopUp {
@@ -348,6 +388,19 @@ body {
     font-size: 18px;
     padding-right: calc(100% - 15rem);
   }
+
+  .top-header {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .active-students {
+    margin-bottom: 10px;
+  }
+
+  .table {
+    min-width: 815px;
+  }
 }
 @media screen and (min-width: 480px) and (max-width: 575px) {
   #PopUp {
@@ -365,6 +418,19 @@ body {
     align-items: flex-start;
     justify-content: center;
     margin: 25px 0px;
+  }
+
+  .top-header {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .active-students {
+    margin-bottom: 10px;
+  }
+
+  .table {
+    min-width: 815px;
   }
 }
 @media screen and (min-width: 576px) and (max-width: 767px) {
@@ -384,10 +450,27 @@ body {
     justify-content: center;
     margin: 25px 0px;
   }
+
+  .top-header {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .active-students {
+    margin-bottom: 10px;
+  }
+
+  .table {
+    min-width: 815px;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 989px) {
   #PopUp {
     max-height: 460px;
+  }
+  .wrapper {
+    width: 100%;
+    padding: 25px 40px 0px 40px;
   }
 }
 @media screen and (min-width: 990px) and (max-width: 1199px) {

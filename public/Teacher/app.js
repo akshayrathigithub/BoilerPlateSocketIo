@@ -10,15 +10,26 @@ LeftPopUp.style.display = "none";
 const RoomId = generateRandomId();
 const secretCodeCopyText = document.getElementById("secret-code-copy");
 const joiningLinkCopyText = document.getElementById("joining-link-copy");
+const secretCodeCopyTextDashboard = document.getElementById(
+  "secret-code-copy-dashboard"
+);
+const joiningLinkCopyTextDashboard = document.getElementById(
+  "joining-link-copy-dashboard"
+);
 const studentUrl = "http://localhost:4001/student";
 const continueBtn = document.querySelector(".continue-btn");
 const popupWrapper = document.getElementById("PopUpWrapper");
+const totalActiveStudentTag = document.getElementById("totalActiveStudents");
+const dashboardWrapper = document.querySelector(".wrapper");
+let totalActiveStudents = 0;
 
 // set secret code
 secretCodeCopyText.querySelector("input.text").value = RoomId;
+secretCodeCopyTextDashboard.querySelector("input.text").value = RoomId;
 
 // set joining link
 joiningLinkCopyText.querySelector("input.text").value = studentUrl;
+joiningLinkCopyTextDashboard.querySelector("input.text").value = studentUrl;
 
 const copyTextToClipboard = (parent) => {
   const input = parent.querySelector("input.text");
@@ -43,10 +54,26 @@ joiningLinkCopyText
     copyTextToClipboard(joiningLinkCopyText);
   });
 
+secretCodeCopyTextDashboard
+  .querySelector("button")
+  .addEventListener("click", function () {
+    copyTextToClipboard(secretCodeCopyTextDashboard);
+  });
+
+joiningLinkCopyTextDashboard
+  .querySelector("button")
+  .addEventListener("click", function () {
+    copyTextToClipboard(joiningLinkCopyTextDashboard);
+  });
+
 // on continue button click
 continueBtn.addEventListener("click", () => {
   popupWrapper.style.display = "none";
+  dashboardWrapper.style.display = "block";
 });
+
+// hide dashboard content wrapper
+dashboardWrapper.style.display = "none";
 
 const DomUpdate = () => {
   const list = document.querySelector(".table-content");
@@ -74,6 +101,8 @@ Socket.emit("TeacherCreatesNewRoom", RoomId);
 
 /* Notifying teacher that a user has joined the server */
 Socket.on("NotifyStudentNameToTeacher", (data) => {
+  totalActiveStudents += 1;
+  totalActiveStudentTag.innerHTML = totalActiveStudents;
   const JoinPopUpWindow = (time = 0) => {
     let Time = time;
 
@@ -122,9 +151,11 @@ Socket.on("SendingDataFromServerToTeacher", (Data) => {
   DomUpdate();
 });
 
-/* Notifying teacher that a user has left the server */
+/* Notifying teacher that a student has left the server */
 
 Socket.on("DisconnectedFromServer", (data) => {
+  totalActiveStudents -= 1;
+  totalActiveStudentTag.innerHTML = totalActiveStudents;
   const LeftPopUpWindow = (time = 0) => {
     let Time = time;
     // logic to display popUp for 4seconds
