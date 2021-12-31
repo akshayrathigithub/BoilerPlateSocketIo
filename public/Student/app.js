@@ -15,6 +15,7 @@ workspaceinputtag.value = "";
 /* getting instance of Popup */
 const Popup = document.getElementById("PopUpWrapper");
 let totalwords = 0;
+let secretCode = "";
 
 let wordsArr = [];
 let currpara = "";
@@ -54,7 +55,7 @@ const typingStatus = (count) => {
 const TransferDataToServer = (Data) => {
   Socket.emit("RecevingDataFromStudentToServer", {
     Data: Data,
-    Id: parseInt(RollNo),
+    Id: secretCode,
   });
 };
 function Main() {
@@ -66,7 +67,6 @@ function Main() {
   secretCodeInput.value = "";
 
   let studentName;
-  let secretCode;
   // receiving name of studen
   nameInput.addEventListener("input", () => {
     studentName = nameInput.value;
