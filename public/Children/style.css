@@ -1,0 +1,294 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#PopUpWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("./studentBg.svg");
+  background-size: cover;
+}
+#PopUp {
+  width: 50%;
+  height: 60%;
+  background-color: #f2f2f2;
+  box-shadow: 0 0 6px 0px #848484;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+#WorkSpace {
+  width: 90vw;
+  height: 90vh;
+  color: black;
+}
+#WorkspaceHeading {
+  margin: 2rem 0rem 1.5rem 0rem;
+  font-size: 20px;
+}
+#WorkspaceInput {
+  width: 100%;
+  height: 100%;
+}
+#WorkspaceInput textarea {
+  width: 100%;
+  height: 85%;
+  resize: none;
+  padding: 12px;
+  background-color: #fff;
+  outline: none;
+  border: 2px solid #000;
+  color: black;
+  font-size: 16.5px;
+  display: inline-block;
+}
+#WorkspaceInput textarea:focus {
+  border: 2px solid #ef348a;
+}
+
+#PopUp .heading {
+  font-size: 40px;
+  text-align: center;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.text-one {
+  font-size: 22px;
+  font-weight: 500;
+  color: black;
+  margin: 10px 0px;
+}
+
+.input-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.name-input,
+.secret-code-input {
+  position: relative;
+  width: 20rem;
+}
+
+.label {
+  font-size: 16px;
+  color: #111;
+  margin-bottom: 5px;
+}
+
+input.text {
+  font-size: 18px;
+  color: #555;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0px 5px;
+}
+
+input.text:focus {
+  border: 2px solid #ff7700;
+}
+
+.error {
+  font-size: 14px;
+  color: red;
+  margin-top: 13px;
+}
+
+/* flip btn */
+.btn-wrapper {
+  display: flex;
+  width: 100%;
+  margin-top: 45px;
+  justify-content: flex-end;
+}
+
+.submit-btn {
+  position: relative;
+  display: inline-flex;
+  width: 180px;
+  height: 55px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.submit-btn div {
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform 0.25s;
+  font-family: "Montserrat", sans-serif;
+}
+.submit-btn div:before,
+.submit-btn div:after {
+  position: absolute;
+  content: "Submit";
+  height: 55px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid #ff7700;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.submit-btn div:before {
+  color: #fff;
+  background: #ff7700;
+  transform: rotateY(0deg) translateZ(25px);
+}
+.submit-btn div:after {
+  color: #ff7700;
+  transform: rotateX(90deg) translateZ(25px);
+}
+.submit-btn div:hover {
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+
+@media screen and (max-width: 319px) {
+  #PopUp {
+    width: 80%;
+    height: 70%;
+    min-width: 290px;
+    max-height: 560px;
+    min-height: 420px;
+  }
+
+  #PopUp .heading {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .text-one {
+    font-size: 15px;
+    margin: 5px 0px;
+  }
+
+  .input-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 15px;
+  }
+
+  .name-input,
+  .secret-code-input {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  #PopUp {
+    width: 80%;
+    height: 70%;
+    min-width: 310px;
+    max-height: 560px;
+    min-height: 420px;
+  }
+
+  #PopUp .heading {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .text-one {
+    font-size: 18px;
+    margin: 10px 0px;
+  }
+
+  .input-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 25px;
+  }
+
+  .name-input,
+  .secret-code-input {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 575px) {
+  #PopUp {
+    width: 80%;
+    height: 70%;
+    min-width: 460px;
+    max-height: 550px;
+    min-height: 420px;
+  }
+  .input-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 25px;
+  }
+
+  .name-input,
+  .secret-code-input {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  #PopUp {
+    width: 80%;
+    height: 60%;
+    min-width: 540px;
+    max-height: 440px;
+    min-height: 420px;
+  }
+
+  .name-input,
+  .secret-code-input {
+    width: 15rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 989px) {
+  #PopUp {
+    width: 50%;
+    height: 60%;
+    max-width: 800px;
+    min-width: 740px;
+    max-height: 440px;
+    min-height: 420px;
+  }
+}
+@media screen and (min-width: 990px) and (max-width: 1199px) {
+  #PopUp {
+    width: 50%;
+    height: 60%;
+    max-width: 800px;
+    min-width: 770px;
+    max-height: 440px;
+    min-height: 420px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #PopUp {
+    width: 50%;
+    height: 60%;
+    max-width: 800px;
+    min-width: 770px;
+    max-height: 440px;
+    min-height: 420px;
+  }
+}

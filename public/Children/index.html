@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Children/style.css" />
+    <title>Children WorkSpace</title>
+  </head>
+
+  <body>
+    <div id="PopUpWrapper">
+      <div id="PopUp">
+        <div class="heading">Join The Room</div>
+        <div class="text-one">
+          Please fill the following details, Contact your Teacher for a valid
+          secret code.
+        </div>
+        <div class="input-row">
+          <div class="name-input">
+            <div class="label">Your Name</div>
+            <input type="text" class="text" id="name-input" />
+            <span class="error" id="name-input-error"
+              >Name cannot be left empty</span
+            >
+          </div>
+          <div class="secret-code-input">
+            <div class="label">Secret Code</div>
+            <input type="text" class="text" id="secret-code-input" />
+            <span class="error" id="secret-input-error"
+              >Not a Valid secret code</span
+            >
+          </div>
+        </div>
+        <div class="btn-wrapper">
+          <div class="submit-btn"><div></div></div>
+        </div>
+      </div>
+    </div>
+    <div id="WorkSpace">
+      <div id="WorkspaceHeading">
+        <p>
+          Start typing in the workspace below your performance will be send to
+          your teacher automatically.
+        </p>
+      </div>
+      <div id="WorkspaceInput">
+        <textarea id="INPUT" placeholder="// start typing here"></textarea>
+      </div>
+    </div>
+    <script src="../Children/socket.io.js"></script>
+    <script src="../Children/app.js"></script>
+  </body>
+</html>
