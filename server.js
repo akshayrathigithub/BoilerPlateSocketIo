@@ -23,19 +23,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.start = app.listen = function () {
   return server.listen.apply(server, arguments);
 };
+const router = express.Router();
 const publicPath = path.join(__dirname, "../public");
 
 app.use(express.static("public"));
+app.use(router);
 
-app.get("/", (req, res) => {
+router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "/public/Home/index.html"));
 });
 
-app.get("/student", (req, res) => {
+router.get("/student", (req, res) => {
   res.sendFile(path.join(__dirname + "/public/Children/index.html"));
 });
 
-app.get("/teacher", (req, res) => {
+router.get("/teacher", (req, res) => {
   res.sendFile(path.join(__dirname + "/public/Teacher/index.html"));
 });
 
