@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="../Home/style.css" />
+    <!-- use these paths for nginx -->
+    <!-- <link rel="stylesheet" href="./Home/style.css" /> for nginx path --> 
   </head>
 
   <body>
@@ -28,9 +30,25 @@
         </div>
         <div class="text-wrapper">
           <span class="text"> I am</span>
-          <div class="btn-wrapper" id="teacher-btn"><div>Teacher</div></div>
+          <!-- href="/socket-io-app/teacher" for nginx path -->
+          <a
+            class="btn-wrapper"
+            id="teacher-btn"
+            href="/teacher"
+            target="_blank"
+          >
+            <div>Teacher</div></a
+          >
           <span class="text">or</span>
-          <div class="btn-wrapper" id="student-btn"><div>Student</div></div>
+           <!--  href=/socket-io-app/student for nginx path-->
+          <a
+            class="btn-wrapper"
+            id="student-btn"
+            href="/student"
+            target="_blank"
+          >
+            <div>Student</div>
+          </a>
         </div>
         <div class="footer">
           Designed and Developed By
@@ -39,5 +57,6 @@
       </div>
     </div>
     <script src="../Home/app.js"></script>
+    <!-- <script src="./Home/app.js"></script> for nginx path-->
   </body>
 </html>
