@@ -16,7 +16,7 @@ const secretCodeCopyTextDashboard = document.getElementById(
 const joiningLinkCopyTextDashboard = document.getElementById(
   "joining-link-copy-dashboard"
 );
-const studentUrl = "http://localhost:4001/student";
+const studentUrl = "https://projects.akshayrathi.com/socket-io-app/student";
 const continueBtn = document.querySelector(".continue-btn");
 const popupWrapper = document.getElementById("PopUpWrapper");
 const totalActiveStudentTag = document.getElementById("totalActiveStudents");
