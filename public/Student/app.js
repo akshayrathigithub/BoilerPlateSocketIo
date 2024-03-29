@@ -1,7 +1,7 @@
 /* getting instance of workspace */
 const WorkSpace = document.getElementById("WorkSpace");
 /* getting instance of socketIO */
-const Socket = io("http://localhost:4001");
+const Socket = io("http://localhost:4005");
 /* getting instance of input */
 const workspaceinputtag = document.getElementById("INPUT");
 // gettng ref for name input and secret code input
